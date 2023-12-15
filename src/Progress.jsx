@@ -10,9 +10,9 @@ function Progress({ index, numQuestions, score, totalPoints, userAnswer }) {
       <p>
         Question {index + 1}/{numQuestions}
       </p>
-      <p>
+      {/* <p>
         {score}/{totalPoints}
-      </p>
+      </p> */}
     </div>
   );
 }
