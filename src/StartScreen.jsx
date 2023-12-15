@@ -38,11 +38,21 @@ function StartScreen({ numQuestions, dispatch }) {
         <ul>
           <li>
             <h5>
-              Use the same Email ID that was used to register for the event, once entered it cannot be changed.
+              Use the same Email ID that was used to register for the event,
+              once entered it cannot be changed.
             </h5>
           </li>
           <li>
+            <h5>You will have 4 mins to attempt the entire quiz.</h5>
+          </li>
+          <li>
             <h5>There will be 5 sections, with 1 question each.</h5>
+          </li>
+          <li>
+            <h5>
+              Every correctly answered question awards 1 point. There is no
+              negative marking.
+            </h5>
           </li>
           <li>
             <h5>
@@ -51,11 +61,8 @@ function StartScreen({ numQuestions, dispatch }) {
             </h5>
           </li>
           <li>
-            <h5>You will have 4 mins to attempt the entire quiz.</h5>
-          </li>
-          <li>
             <h5>
-              Once you attempt all the questions or the time runs out, the quiz
+              Once all questions are attempted or the time runs out, the quiz
               will submit automatically.
             </h5>
           </li>
