@@ -6,7 +6,7 @@ function Question({ question, dispatch, userAnswer }) {
     <div>
       {/* <h4>{question.question}</h4> */}
       <a
-        href={`http://localhost:5173${question.question.slice(2)}`}
+        href={question.question}
         target="blank"
       >
         <img

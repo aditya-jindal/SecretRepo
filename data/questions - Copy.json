@@ -1,33 +1,33 @@
 {
   "questions": [
     {
-      "question": "../data/QuestionImg/Section1/1.png",
+      "question": "https://raw.githubusercontent.com/aditya-jindal/SecretRepo/master/data/QuestionImg/Section1/1.png",
       "options": ["A", "B", "C", "D"],
+      "correctOption": 0,
+      "points": 1
+    },
+    {
+      "question": "https://raw.githubusercontent.com/aditya-jindal/SecretRepo/master/data/QuestionImg/Section1/2.png",
+      "options": ["Only A", "B and D", "C and D", "Only B"],
       "correctOption": 3,
       "points": 1
     },
     {
-      "question": "../data/QuestionImg/Section1/2.png",
+      "question": "https://raw.githubusercontent.com/aditya-jindal/SecretRepo/master/data/QuestionImg/Section1/3.png",
       "options": ["A", "B", "C", "D"],
-      "correctOption": 3,
+      "correctOption": 2,
       "points": 1
     },
     {
-      "question": "../data/QuestionImg/Section1/3.png",
-      "options": ["A", "B", "C", "D"],
-      "correctOption": 3,
+      "question": "https://raw.githubusercontent.com/aditya-jindal/SecretRepo/master/data/QuestionImg/Section1/4.png",
+      "options": ["A and B", "C and D", "A and C", "B and D"],
+      "correctOption": 0,
       "points": 1
     },
     {
-      "question": "../data/QuestionImg/Section1/4.png",
+      "question": "https://raw.githubusercontent.com/aditya-jindal/SecretRepo/master/data/QuestionImg/Section1/5.png",
       "options": ["A", "B", "C", "D"],
-      "correctOption": 3,
-      "points": 1
-    },
-    {
-      "question": "../data/QuestionImg/Section1/5.png",
-      "options": ["A", "B", "C", "D"],
-      "correctOption": 3,
+      "correctOption": 2,
       "points": 1
     }
   ]
