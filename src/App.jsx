@@ -209,6 +209,7 @@ function App() {
               question={questions[index]}
               userAnswer={userAnswer}
               dispatch={dispatch}
+              key={index}
             />
             <Footer>
               <NextButton
