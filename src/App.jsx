@@ -151,7 +151,6 @@ function App() {
       index,
       score,
       userAnswer,
-      highScore,
       timeLeft,
       name,
       email,
@@ -174,10 +173,6 @@ function App() {
     }
     fetchQuestions();
   }, []);
-  const totalPoints = questions?.reduce(
-    (rec, question) => rec + question.points,
-    0
-  );
   function formatMMSS(timeLeft) {
     const timeTaken = 4 * 60 - timeLeft;
     return `${Math.floor(timeTaken / 60)}mins ${timeTaken % 60}secs`;
