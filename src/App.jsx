@@ -17,7 +17,6 @@ const initialState = {
   index: 0,
   score: 0,
   userAnswer: null,
-  // highScore: JSON.parse(localStorage.getItem("highscore")),
   timeLeft: null,
   name: null,
   email: null,
@@ -46,20 +45,10 @@ const reducer = function (state, action) {
         college: action.payload.college,
       };
     case "next":
-      // if (
-      //   state.index === state.questions?.length - 1 &&
-      //   state.highScore < state.score
-      // ) {
-      //   console.log(JSON.parse(localStorage.getItem("highscore")));
-      //   localStorage.setItem("highscore", JSON.stringify(state.score));
-      //   console.log(JSON.parse(localStorage.getItem("highscore")));
-      // }
       return state.index === state.questions?.length - 1
         ? {
             ...state,
             status: "end",
-            // highScore:
-            //   state.highScore < state.score ? state.score : state.highScore,
           }
         : { ...state, index: state.index + 1, userAnswer: null };
     case "submitAns": {
@@ -73,21 +62,11 @@ const reducer = function (state, action) {
         userAnswer: action.payload + 1,
       };
     }
-    // case "reset":
-    //   return {
-    //     ...initialState,
-    //     questions: shuffleArray(state.allQuestions).slice(0, 50),
-    //     allQuestions: state.allQuestions,
-    //     status: "ready",
-    //     highScore: state.highScore,
-    //   };
     case "tick":
       if (state.timeLeft <= 0)
         return {
           ...state,
           status: "end",
-          // highScore:
-          //   state.highScore < state.score ? state.score : state.highScore,
         };
 
       return {
@@ -144,16 +123,6 @@ function setQuestions(array) {
 }
 
 function App() {
-  useEffect(() => {
-    const unloadCallback = (event) => {
-      event.preventDefault();
-      event.returnValue = "";
-      return "";
-    };
-
-    window.addEventListener("beforeunload", unloadCallback);
-    return () => window.removeEventListener("beforeunload", unloadCallback);
-  }, []);
   const [
     {
       questions,
@@ -168,6 +137,17 @@ function App() {
     },
     dispatch,
   ] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const unloadCallback = (event) => {
+      event.preventDefault();
+      event.returnValue = "";
+      return "";
+    };
+
+    status !== "end" && window.addEventListener("beforeunload", unloadCallback);
+    return () => window.removeEventListener("beforeunload", unloadCallback);
+  }, [status]);
 
   useEffect(function () {
     async function fetchQuestions() {

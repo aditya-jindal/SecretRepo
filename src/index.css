@@ -325,3 +325,13 @@ h5{
   font-size: 1.5rem;
   font-weight: normal;
 }
+
+.resultForm{
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.resultForm h4{
+  text-align: center;
+  margin-bottom: 1rem;
+}
