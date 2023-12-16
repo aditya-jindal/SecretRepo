@@ -3,9 +3,10 @@ import Header from "./Header";
 function StartScreen({ numQuestions, dispatch }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [college, setCollege] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch({ type: "start", payload: { name, email } });
+    dispatch({ type: "start", payload: { name, email, college } });
   }
   return (
     <div className="start">
@@ -32,6 +33,17 @@ function StartScreen({ numQuestions, dispatch }) {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="forminput">
+          <h4>College:</h4>
+          <input
+            className="btn"
+            type="text"
+            placeholder="college name"
+            required
+            value={college}
+            onChange={(e) => setCollege(e.target.value)}
           />
         </div>
         <h3 className="instructions-heading">Instructions:</h3>

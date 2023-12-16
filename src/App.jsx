@@ -25,6 +25,7 @@ const initialState = {
   timeLeft: null,
   name: null,
   email: null,
+  college: null,
 };
 
 const reducer = function (state, action) {
@@ -50,9 +51,10 @@ const reducer = function (state, action) {
         ...state,
         status: "start",
         // timeLeft: 30 * 60,
-        timeLeft: 4*60,
+        timeLeft: 4 * 60,
         name: action.payload.name,
         email: action.payload.email,
+        college: action.payload.college,
       };
     case "next":
       if (
@@ -165,6 +167,7 @@ function App() {
       numQuestions,
       name,
       email,
+      college,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -189,15 +192,24 @@ function App() {
     (rec, question) => rec + question.points,
     0
   );
+  function formatMMSS(timeLeft) {
+    const timeTaken = 4 * 60 - timeLeft;
+    return `${Math.floor(timeTaken / 60)}mins ${timeTaken % 60}secs`;
+  }
   useEffect(
     function () {
       if (status === "end") {
-        putScore({ name: name, email: email, score: score }).then((data) =>
-          console.log(data)
-        );
+        putScore({
+          name: name,
+          email: email,
+          score: score,
+          college: college,
+          // change for prod to 30*60-timeLeft
+          timeTaken: formatMMSS(timeLeft),
+        }).then((data) => console.log(data));
       }
     },
-    [status, email, name, score]
+    [status, email, name, score, college, timeLeft]
   );
   return (
     <div className="app">
@@ -241,6 +253,7 @@ function App() {
             dispatch={dispatch}
             name={name}
             email={email}
+            college={college}
           />
         )}
       </MainEle>
