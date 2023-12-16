@@ -68,14 +68,14 @@ function StartScreen({ dispatch }) {
           </li>
           <li>
             <h5>
-              Navigation between questions is disabled. Answer the questions as
-              you come across them.
+              Once all questions are attempted or the time runs out, the quiz
+              will submit automatically.
             </h5>
           </li>
           <li>
             <h5>
-              Once all questions are attempted or the time runs out, the quiz
-              will submit automatically.
+              Do not refresh/reload the page. All attempted data will be lost
+              upon doing so.
             </h5>
           </li>
         </ul>
