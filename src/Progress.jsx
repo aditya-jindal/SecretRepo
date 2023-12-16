@@ -6,7 +6,7 @@ function Progress({ index, numQuestions, userAnswer }) {
         value={index + Number(userAnswer !== null)}
       />
       {/* <p>Section {Math.floor(index/6)+1}/5</p> */}
-      <p>Section {index + 1}/5</p>
+      {/* <p>Section {index + 1}/5</p> */}
       <p>
         Question {index + 1}/{numQuestions}
       </p>

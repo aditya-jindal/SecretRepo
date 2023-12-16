@@ -55,15 +55,14 @@ function StartScreen({ dispatch }) {
             </h5>
           </li>
           <li>
-            <h5>You will have 4 mins to attempt the entire quiz.</h5>
+            <h5>Pattern: Multiple Choice Questions (MCQs).</h5>
           </li>
           <li>
-            <h5>There will be 5 sections, with 1 question each.</h5>
+            <h5>No. of questions: 5, Duration: 4 minutes.</h5>
           </li>
           <li>
             <h5>
-              Every correctly answered question awards 1 point. There is no
-              negative marking.
+              Each question’s weightage is 1 mark. There is no negative marking.
             </h5>
           </li>
           <li>
@@ -78,9 +77,15 @@ function StartScreen({ dispatch }) {
               upon doing so.
             </h5>
           </li>
+          <li>
+            <h5>
+              Either laptops or mobile devices can be used for the test, but we
+              recommend laptops for an optimal experience.
+            </h5>
+          </li>
         </ul>
         <button type="submit" className="btn" disabled>
-          Let's Start (Will be enabled at 11:30 am on 17/12)
+          Let's Start (Will be enabled at 5:00 pm on 17/12)
         </button>
       </form>
     </div>
