@@ -33,7 +33,7 @@ function Question({ question, dispatch, userAnswer }) {
             className={`btn btn-option 
           ${i === userAnswer - 1 && "answer correct"}
           ${userAnswer && i !== userAnswer - 1 && "wrong"}`}
-            disabled={userAnswer}
+            // disabled={userAnswer}
             onClick={() => dispatch({ type: "submitAns", payload: i })}
             key={i}
           >

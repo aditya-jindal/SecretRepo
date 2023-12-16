@@ -44,21 +44,38 @@ const reducer = function (state, action) {
         email: action.payload.email,
         college: action.payload.college,
       };
-    case "next":
+    case "next": {
+      // new code for reselect
+      let newScore = state.score;
+      if (state.questions[state.index].correctOption === state.userAnswer - 1) {
+        newScore += state.questions[state.index].points;
+      }
+      // new code end for reselect
       return state.index === state.questions?.length - 1
         ? {
             ...state,
+            score: newScore,
             status: "end",
           }
-        : { ...state, index: state.index + 1, userAnswer: null };
+        : {
+            ...state,
+            score: newScore,
+            index: state.index + 1,
+            userAnswer: null,
+          };
+    }
     case "submitAns": {
-      let newScore = state.score;
-      if (state.questions[state.index].correctOption === action.payload) {
-        newScore += state.questions[state.index].points;
-      }
+      // let newScore = state.score;
+      // if (state.questions[state.index].correctOption === action.payload) {
+      //   newScore += state.questions[state.index].points;
+      // }
+      // return {
+      //   ...state,
+      //   score: newScore,
+      //   userAnswer: action.payload + 1,
+      // };
       return {
         ...state,
-        score: newScore,
         userAnswer: action.payload + 1,
       };
     }
@@ -137,7 +154,7 @@ function App() {
     },
     dispatch,
   ] = useReducer(reducer, initialState);
-
+  console.log(score);
   useEffect(() => {
     const unloadCallback = (event) => {
       event.preventDefault();
