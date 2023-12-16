@@ -6,7 +6,7 @@ function StartScreen({ dispatch }) {
   const [college, setCollege] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch({ type: "start", payload: { name, email, college } });
+    // dispatch({ type: "start", payload: { name, email, college } });
   }
   return (
     <div className="start">
@@ -79,8 +79,8 @@ function StartScreen({ dispatch }) {
             </h5>
           </li>
         </ul>
-        <button type="submit" className="btn  ">
-          Let's Start
+        <button type="submit" className="btn" disabled>
+          Let's Start (Will be enabled at 11:30 am on 17/12)
         </button>
       </form>
     </div>
