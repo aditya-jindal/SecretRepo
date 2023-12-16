@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
-function StartScreen({ numQuestions, dispatch }) {
+function StartScreen({ dispatch }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [college, setCollege] = useState("");
@@ -79,11 +79,7 @@ function StartScreen({ numQuestions, dispatch }) {
             </h5>
           </li>
         </ul>
-        <button
-          type="submit"
-          className="btn  "
-          // onClick={() => dispatch({ type: "start" })}
-        >
+        <button type="submit" className="btn  ">
           Let's Start
         </button>
       </form>

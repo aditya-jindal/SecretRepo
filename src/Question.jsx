@@ -1,14 +1,7 @@
-// import Option from "./Option"
-// import { v4 as uuidv4 } from "uuid";
-
 function Question({ question, dispatch, userAnswer }) {
   return (
     <div>
-      {/* <h4>{question.question}</h4> */}
-      <a
-        href={question.question}
-        target="blank"
-      >
+      <a href={question.question} target="blank">
         <img
           src={question.question}
           alt="question"
@@ -19,11 +12,6 @@ function Question({ question, dispatch, userAnswer }) {
         {question.options.map((option, i) => (
           <button
             className={`btn btn-option 
-            ${
-              // userAnswer &&
-              // `${question.correctOption === i ? "correct" : "wrong"}`
-              ""
-            }
                ${i === userAnswer - 1 && "answer correct"}
                 ${userAnswer && i !== userAnswer - 1 && "wrong"}`}
             disabled={userAnswer}
@@ -44,5 +32,3 @@ function Question({ question, dispatch, userAnswer }) {
 }
 
 export default Question;
-
-// <Option option={option} />

@@ -1,4 +1,4 @@
-function Progress({ index, numQuestions, score, totalPoints, userAnswer }) {
+function Progress({ index, numQuestions, userAnswer }) {
   return (
     <div className="progress">
       <progress

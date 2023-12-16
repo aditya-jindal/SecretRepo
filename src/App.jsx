@@ -1,5 +1,4 @@
 import { useEffect, useReducer } from "react";
-import Header from "./Header";
 import MainEle from "./MainEle";
 import Loader from "./Loader";
 import Error from "./Error";
@@ -12,11 +11,8 @@ import Footer from "./Footer";
 import Timer from "./Timer";
 import data from "../data/questions - Copy.json";
 import { putScore } from "./services/putScore";
-// console.log(data.questions);
 const initialState = {
   questions: [],
-  // allQuestions: [],
-  // numQuestions: 50,
   status: "loading",
   index: 0,
   score: 0,
@@ -30,17 +26,10 @@ const initialState = {
 
 const reducer = function (state, action) {
   switch (action.type) {
-    // case "changeNumQuestions":
-    //   return {
-    //     ...state,
-    //     numQuestions: action.payload,
-    //     questions: shuffleArray(state.allQuestions).slice(0, action.payload),
-    //   };
     case "dataRetrieved":
       return {
         ...state,
         questions: setQuestions(action.payload),
-        // allQuestions: action.payload,
         status: "ready",
       };
     case "dataRetrievalFailed":
@@ -164,14 +153,12 @@ function App() {
       userAnswer,
       highScore,
       timeLeft,
-      numQuestions,
       name,
       email,
       college,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
-  // console.log(questions);
 
   useEffect(function () {
     async function fetchQuestions() {
@@ -187,7 +174,6 @@ function App() {
     }
     fetchQuestions();
   }, []);
-  // const numQuestions = questions?.length;
   const totalPoints = questions?.reduce(
     (rec, question) => rec + question.points,
     0
@@ -213,20 +199,15 @@ function App() {
   );
   return (
     <div className="app">
-      {/* <Header /> */}
       <MainEle>
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
-        {status === "ready" && (
-          <StartScreen numQuestions={questions?.length} dispatch={dispatch} />
-        )}
+        {status === "ready" && <StartScreen dispatch={dispatch} />}
         {status === "start" && (
           <>
             <Progress
               numQuestions={questions?.length}
               index={index}
-              score={score}
-              totalPoints={totalPoints}
               userAnswer={userAnswer}
             />
             <Question
@@ -246,15 +227,7 @@ function App() {
           </>
         )}
         {status === "end" && (
-          <ResultScreen
-            score={score}
-            totalPoints={totalPoints}
-            highScore={highScore}
-            dispatch={dispatch}
-            name={name}
-            email={email}
-            college={college}
-          />
+          <ResultScreen name={name} email={email} college={college} />
         )}
       </MainEle>
     </div>
