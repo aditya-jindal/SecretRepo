@@ -11,7 +11,7 @@ function StartScreen({ dispatch }) {
   return (
     <div className="start">
       <Header />
-      <h2>Mathematical Talent Exam (DEMO)</h2>
+      <h2>Mathematical Talent Exam (MOCK)</h2>
       <form onSubmit={(e) => handleSubmit(e)} className="beginform">
         <div className="forminput">
           <h4>Name:</h4>
