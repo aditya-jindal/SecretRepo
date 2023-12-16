@@ -8,6 +8,7 @@ function Question({ question, dispatch, userAnswer }) {
     setLoading(false);
   }
   function handleError() {
+    setLoading(false);
     setError(true);
   }
   return (
